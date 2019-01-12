@@ -16,8 +16,8 @@ from sys import stdout
 
 if __name__ == "__main__":
 
-    #board = MultiWii("/dev/ttyUSB0")
-    board = MultiWii("/dev/tty.SLAB_USBtoUART")
+    board = MultiWii(serPort="/dev/ttyUSB0", wakeup_delay=14)
+    # board = MultiWii("/dev/tty.SLAB_USBtoUART")
     try:
         while True:
             board.getData(MultiWii.RAW_IMU)

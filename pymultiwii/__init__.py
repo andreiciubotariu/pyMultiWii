@@ -56,7 +56,7 @@ class MultiWii:
 
 
     """Class initialization"""
-    def __init__(self, serPort):
+    def __init__(self, serPort, wakeup_delay=2):
 
         """Global variables of data"""
         self.PIDcoef = {'rp':0,'ri':0,'rd':0,'pp':0,'pi':0,'pd':0,'yp':0,'yi':0,'yd':0}
@@ -82,15 +82,14 @@ class MultiWii:
         self.ser.rtscts = False
         self.ser.dsrdtr = False
         self.ser.writeTimeout = 2
-        """Time to wait until the board becomes operational"""
-        wakeup = 2
+
         try:
             self.ser.open()
             if self.PRINT:
                 print ("Waking up board on "+self.ser.port+"...")
-            for i in range(1,wakeup):
+            for i in range(1,wakeup_delay):
                 if self.PRINT:
-                    print (wakeup-i)
+                    print (wakeup_delay-i)
                     time.sleep(1)
                 else:
                     time.sleep(1)

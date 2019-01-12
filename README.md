@@ -8,6 +8,9 @@ Handles the MultiWii Serial Protocol to send/receive data from boards.
 This is a text based / console, no GUI, it works reading data from the multicopter and/or sending commands from a computer via a serial modem. I use this module for doing different request to my multicopters in order to control them wirelessly via a raspberry pie.
 
 ## Installation 
+```
+pip install -r requirements.txt
+```
 
 To install with pip run the following command from this directory,
 
